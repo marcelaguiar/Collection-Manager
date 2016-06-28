@@ -95,17 +95,17 @@ namespace CollectionsManager
 
         private void SetLabels(IDataRecord record)
         {
-            ID.Text = record[0].ToString();
-            Maker.Text = record[1].ToString();
-            Variant.Text = record[2].ToString();
-            label11.Text = record[3].ToString();
-            label12.Text = record[9].ToString();
-            label13.Text = record[4].ToString();
-            label14.Text = record[5].ToString();
-            label15.Text = record[8].ToString();
-            label16.Text = record[7].ToString();
-            label17.Text = record[10].ToString();
-            label18.Text = record[6].ToString();
+            ID.Text = record[0].ToString().Trim();
+            Maker.Text = record[1].ToString().Trim();
+            Variant.Text = record[2].ToString().Trim();
+            label11.Text = record[3].ToString().Trim();
+            label12.Text = record[9].ToString().Trim();
+            label13.Text = record[4].ToString().Trim();
+            label14.Text = record[5].ToString().Trim();
+            label15.Text = record[8].ToString().Trim();
+            label16.Text = record[7].ToString().Trim();
+            label17.Text = record[10].ToString().Trim();
+            label18.Text = record[6].ToString().Trim();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -122,6 +122,14 @@ namespace CollectionsManager
         private void currentItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             displaySelection();
+        }
+
+        private void pictureBox1_Resize(object sender, EventArgs e)
+        {
+            pictureBox1.Height = pictureBox1.Width;
+
+            //if (pictureBox1.Height > panel3.Height)
+            //    pictureBox1.Height = panel3.Height;
         }
 
     }
