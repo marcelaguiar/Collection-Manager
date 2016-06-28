@@ -1,0 +1,128 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.IO;
+
+namespace CollectionsManager
+{
+    public partial class frmMain : Form
+    {
+        String connectionString;
+        SqlConnection connection;
+         
+        public frmMain()
+        {
+            InitializeComponent();
+            connectionString = ConfigurationManager.ConnectionStrings["CollectionsManager.Properties.Settings.CollectionsConnectionString"].ConnectionString;
+            Shown += frmMain_Shown; //God bless the magic
+        }
+
+        private void frmMain_Shown(Object sender, EventArgs e)
+        {
+            populateCollectionList();
+        }
+
+        private void populateCollectionList()
+        {
+            currentItems.Items.Clear();
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Bottlecaps ORDER BY Maker ASC", connection))
+            {
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    ListViewItem item = new ListViewItem(dr["Id"].ToString());
+                    item.SubItems.Add(dr["Maker"].ToString());
+                    item.SubItems.Add(dr["Variant"].ToString());
+                    currentItems.Items.Add(item);
+                }
+            }
+        }
+
+        private void displaySelection()
+        {
+            if (this.currentItems.SelectedItems.Count == 0)
+                return; //Maybe select first element in list instead?
+
+            string id = this.currentItems.SelectedItems[0].SubItems[0].Text;
+
+            string queryString = string.Format("SELECT * FROM Bottlecaps WHERE Id='{0}';", id);
+
+            using (connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(queryString, connection);
+                SqlCommand command = new SqlCommand(queryString, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                /* Display Labels */
+                while (reader.Read())
+                {
+                    SetLabels((IDataRecord)reader);
+                }
+
+                reader.Close();
+
+                /* Display Image */
+                var ds = new DataSet();
+                adapter.Fill(ds, "Images");
+                int count = ds.Tables["Images"].Rows.Count;
+
+                if (count == 1)
+                {
+                    var data = (Byte[])(ds.Tables["Images"].Rows[count - 1]["Img"]);
+                    var stream = new MemoryStream(data);
+                    pictureBox1.Image = Image.FromStream(stream);
+                }
+                else
+                    Console.Out.WriteLine("Multiple instances of an Id found!: " + count);
+
+                //Should I close/dispose adapter?
+            }
+        }
+
+        private void SetLabels(IDataRecord record)
+        {
+            ID.Text = record[0].ToString();
+            Maker.Text = record[1].ToString();
+            Variant.Text = record[2].ToString();
+            label11.Text = record[3].ToString();
+            label12.Text = record[9].ToString();
+            label13.Text = record[4].ToString();
+            label14.Text = record[5].ToString();
+            label15.Text = record[8].ToString();
+            label16.Text = record[7].ToString();
+            label17.Text = record[10].ToString();
+            label18.Text = record[6].ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAddItem itemAddPage = new frmAddItem();
+            if (itemAddPage.ShowDialog() == DialogResult.OK)
+            {
+                populateCollectionList(); //Does this not do anything
+            }
+
+            itemAddPage.Dispose();
+        }
+
+        private void currentItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displaySelection();
+        }
+
+    }
+}

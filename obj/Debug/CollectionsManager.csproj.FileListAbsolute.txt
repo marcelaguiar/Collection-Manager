@@ -1,0 +1,12 @@
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\bin\Debug\CollectionsManager.exe.config
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\bin\Debug\Collections.mdf
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\bin\Debug\Collections_log.ldf
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\bin\Debug\CollectionsManager.exe
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\bin\Debug\CollectionsManager.pdb
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.frmMain.resources
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.Properties.Resources.resources
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.csproj.GenerateResource.Cache
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.exe
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.pdb
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.frmAddItem.resources
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.csprojResolveAssemblyReference.cache
