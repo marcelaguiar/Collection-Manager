@@ -22,7 +22,7 @@ namespace CollectionsManager
         {
             InitializeComponent();
             connectionString = ConfigurationManager.ConnectionStrings["CollectionsManager.Properties.Settings.CollectionsConnectionString"].ConnectionString;
-            Shown += frmMain_Shown; //God bless the magic
+            Shown += frmMain_Shown;
         }
 
         private void frmMain_Shown(Object sender, EventArgs e)
@@ -42,9 +42,9 @@ namespace CollectionsManager
 
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    ListViewItem item = new ListViewItem(dr["Id"].ToString());
-                    item.SubItems.Add(dr["Maker"].ToString());
-                    item.SubItems.Add(dr["Variant"].ToString());
+                    ListViewItem item = new ListViewItem(dr["Id"].ToString().Trim());
+                    item.SubItems.Add(dr["Maker"].ToString().Trim());
+                    item.SubItems.Add(dr["Variant"].ToString().Trim());
                     currentItems.Items.Add(item);
                 }
             }
@@ -82,9 +82,17 @@ namespace CollectionsManager
 
                 if (count == 1)
                 {
-                    var data = (Byte[])(ds.Tables["Images"].Rows[count - 1]["Img"]);
-                    var stream = new MemoryStream(data);
-                    pictureBox1.Image = Image.FromStream(stream);
+                    var data = (ds.Tables["Images"].Rows[count - 1]["Img"]);
+
+                    if (data.GetType() == typeof(System.DBNull))
+                    {
+                        pictureBox1.Image = null;
+                    }
+                    else
+                    {
+                        var stream = new MemoryStream((Byte[])data);
+                        pictureBox1.Image = Image.FromStream(stream);
+                    }
                 }
                 else
                     Console.Out.WriteLine("Multiple instances of an Id found!: " + count);
@@ -113,10 +121,11 @@ namespace CollectionsManager
             frmAddItem itemAddPage = new frmAddItem();
             if (itemAddPage.ShowDialog() == DialogResult.OK)
             {
-                populateCollectionList(); //Does this not do anything
+                // or does it go here
             }
 
             itemAddPage.Dispose();
+            populateCollectionList(); //Does this not do anything
         }
 
         private void currentItems_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,13 +133,29 @@ namespace CollectionsManager
             displaySelection();
         }
 
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Search...")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = SystemColors.WindowText;
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length == 0)
+            {
+                textBox1.Text = "Search...";
+                textBox1.ForeColor = SystemColors.GrayText;
+            }
+        }
+
         private void pictureBox1_Resize(object sender, EventArgs e)
         {
             pictureBox1.Height = pictureBox1.Width;
-
-            //if (pictureBox1.Height > panel3.Height)
-            //    pictureBox1.Height = panel3.Height;
         }
+
 
     }
 }

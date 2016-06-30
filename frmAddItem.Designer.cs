@@ -312,6 +312,7 @@
             this.Controls.Add(this.txtMaker);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmAddItem";
             this.Text = "Add New Item";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -346,10 +347,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label imgPath;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.CheckBox sparesAvailable;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
 
     }

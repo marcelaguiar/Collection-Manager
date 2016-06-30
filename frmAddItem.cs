@@ -47,7 +47,7 @@ namespace CollectionsManager
 
                 DialogResult dr = openFd.ShowDialog();
 
-                if(dr == DialogResult.Cancel)
+                if (dr == DialogResult.Cancel)
                 {
                     return;
                 }
@@ -70,8 +70,10 @@ namespace CollectionsManager
                 ms.Close();
             }
             else
-                byteArray = null; //Is this optimal?
+            {
                 Console.Out.WriteLine("No image selected.");
+                byteArray = null;
+            }
 
             command = new SqlCommand("INSERT INTO Bottlecaps (Maker,Variant,Drink,Method_Acquired,Spares_Available,Text,Icon,Color,Date_Acquired,Underside_Text,Imgpath,Img) VALUES (@Maker, @Variant, @Drink, @MethodAcquired, @SparesAvailable, @Text, @Icon, @Color, @DateAcquired, @Underside, @Imgpath, @Img)", connection);
             command.Parameters.AddWithValue("@Maker", txtMaker.Text);
@@ -85,7 +87,8 @@ namespace CollectionsManager
             command.Parameters.AddWithValue("@DateAcquired", datePicker.Value);
             command.Parameters.AddWithValue("@Underside", txtUnderside.Text);
             command.Parameters.AddWithValue("@Imgpath", imgPath.Text);
-            command.Parameters.AddWithValue("@Img", byteArray);
+            command.Parameters.AddWithValue("@Img",
+                (pictureBox1.Image == null) ? (object)DBNull.Value : byteArray).SqlDbType = SqlDbType.Image;
             command.ExecuteNonQuery();
         }
 
