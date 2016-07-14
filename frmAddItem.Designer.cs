@@ -240,9 +240,8 @@
             this.imgPath.AutoSize = true;
             this.imgPath.Location = new System.Drawing.Point(3, 0);
             this.imgPath.Name = "imgPath";
-            this.imgPath.Size = new System.Drawing.Size(45, 13);
+            this.imgPath.Size = new System.Drawing.Size(0, 13);
             this.imgPath.TabIndex = 24;
-            this.imgPath.Text = "imgPath";
             // 
             // pictureBox1
             // 

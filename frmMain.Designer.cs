@@ -177,14 +177,12 @@ namespace CollectionsManager
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(185, 184);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Resize += new System.EventHandler(this.pictureBox1_Resize);
             // 
             // panel3
             // 
@@ -194,6 +192,7 @@ namespace CollectionsManager
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(185, 216);
             this.panel3.TabIndex = 3;
+            this.panel3.Resize += new System.EventHandler(this.panel3_Resize);
             // 
             // tableLayoutPanel1
             // 
@@ -450,6 +449,7 @@ namespace CollectionsManager
             this.textBox1.Size = new System.Drawing.Size(156, 20);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "Search...";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
@@ -458,7 +458,15 @@ namespace CollectionsManager
             this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {"", "Id", "Maker", "Variant", "Drink", "Spares Available", "Icon", "Color"});
+            this.comboBox1.Items.AddRange(new object[] {
+            "",
+            "Id",
+            "Maker",
+            "Variant",
+            "Drink",
+            "Spares Available",
+            "Icon",
+            "Color"});
             this.comboBox1.Location = new System.Drawing.Point(165, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(134, 21);

@@ -20,7 +20,6 @@ namespace CollectionsManager
         SqlCommand command;
         SqlConnection connection;
 
-
         public frmAddItem()
         {
             InitializeComponent();
@@ -33,9 +32,11 @@ namespace CollectionsManager
             {
                 connection.Open();
                 insertTextFieldsAndImage();
+                Console.Out.WriteLine("Item inserted into Bottlecaps database. Proceed to next step.");
             }
 
             this.Close();
+            Console.Out.WriteLine("Add Item Window closed. Proceed to next step.");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -52,7 +53,10 @@ namespace CollectionsManager
                     return;
                 }
 
-                // Create a image processing function
+                
+                //Image selectedImage = Image.FromFile(openFd.FileName);
+                //pictureBox1.Image = compressImage(selectedImage);
+
                 pictureBox1.Image = Image.FromFile(openFd.FileName);
                 imgPath.Text = openFd.FileName;
             }
@@ -90,6 +94,11 @@ namespace CollectionsManager
             command.Parameters.AddWithValue("@Img",
                 (pictureBox1.Image == null) ? (object)DBNull.Value : byteArray).SqlDbType = SqlDbType.Image;
             command.ExecuteNonQuery();
+        }
+
+        private Image compressImage()
+        {
+            return ;
         }
 
     }
