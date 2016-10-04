@@ -464,7 +464,6 @@ namespace CollectionsManager
             "Maker",
             "Variant",
             "Drink",
-            "Spares Available",
             "Icon",
             "Color"});
             this.comboBox1.Location = new System.Drawing.Point(165, 3);

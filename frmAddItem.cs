@@ -96,10 +96,10 @@ namespace CollectionsManager
             command.ExecuteNonQuery();
         }
 
-        private Image compressImage()
-        {
-            return ;
-        }
+        //private Image compressImage()
+        //{
+        //    return ;
+        //}
 
     }
 }
