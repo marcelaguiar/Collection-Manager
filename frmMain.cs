@@ -15,7 +15,7 @@ namespace CollectionsManager
         String connectionString;
         SqlConnection connection;
 
-        List<CollectionEntry> items;
+        List<CollectionEntry> items = new List<CollectionEntry>();
          
         public frmMain()
         {
@@ -48,13 +48,10 @@ namespace CollectionsManager
                     currentItems.Items.Add(item);
                 }
             }
-
         }
 
         private void initializeCollectionList()
         {
-            items = new List<CollectionEntry>();
-
             using (connection = new SqlConnection(connectionString))
             using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Bottlecaps ORDER BY Maker ASC", connection))
             {
@@ -176,7 +173,7 @@ namespace CollectionsManager
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox1.Text != "Search...")
+            if (textBox1.Text != "" && textBox1.Text != "Search..." && comboBox1.SelectedIndex > 0)
             {
                 currentItems.Items.Clear();
 
@@ -205,7 +202,13 @@ namespace CollectionsManager
             }
             else
             {
+                //if everything is already displayed, do nothing
+
+                currentItems.Items.Clear();
+
                 //display everything
+                currentItems.Items.AddRange(items.Where(i => string.IsNullOrEmpty(textBox1.Text))
+                        .Select(c => new ListViewItem(c.Id)).ToArray());
             }
         }
 

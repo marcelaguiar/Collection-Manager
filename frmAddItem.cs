@@ -32,6 +32,8 @@ namespace CollectionsManager
             {
                 connection.Open();
                 insertTextFieldsAndImage();
+
+                //add new item to fromMain.items
                 Console.Out.WriteLine("Item inserted into Bottlecaps database. Proceed to next step.");
             }
 
