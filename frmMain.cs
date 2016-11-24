@@ -16,6 +16,7 @@ namespace CollectionsManager
         SqlConnection connection;
 
         List<CollectionEntry> items = new List<CollectionEntry>();
+        bool listFull = false;
          
         public frmMain()
         {
@@ -48,6 +49,7 @@ namespace CollectionsManager
                     currentItems.Items.Add(item);
                 }
             }
+            listFull = true;
         }
 
         private void initializeCollectionList()
@@ -173,42 +175,22 @@ namespace CollectionsManager
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox1.Text != "Search..." && comboBox1.SelectedIndex > 0)
+            if (!textBox1.Text.Equals("") && !textBox1.Text.Equals("Search..."))
             {
-                currentItems.Items.Clear();
-
-                int category = comboBox1.SelectedIndex;
-
-                Console.WriteLine("Selected category: " + category);
-
-                // repopulate the listview with search results corresponding to selected category
-                if (category == 1) //ID
+                if (comboBox1.SelectedIndex >= 0)
                 {
-                    currentItems.Items.AddRange(items.Where(i => string.IsNullOrEmpty(textBox1.Text) || i.Id.StartsWith(textBox1.Text))
-                        .Select(c => new ListViewItem(c.Id)).ToArray());
-                }
-                else if (category == 2) //Maker
-                {
-                    currentItems.Items.AddRange(items.Where(i => string.IsNullOrEmpty(textBox1.Text) || i.Maker.StartsWith(textBox1.Text))
-                        .Select(c => new ListViewItem(c.Id)).ToArray());
-                }
-                else if (category == 3) //Variant
-                {
-                    currentItems.Items.AddRange(items.Where(i => string.IsNullOrEmpty(textBox1.Text) || i.Variant.StartsWith(textBox1.Text))
-                        .Select(c => new ListViewItem(c.Id)).ToArray());
+                    repopulateList();
                 }
                 else
-                { }
+                {
+                    //Warn user to select a drop box search option
+                    //Come up with something non-intrusive
+                }
             }
-            else
+            else if (!textBox1.Text.Equals("Search..."))
             {
-                //if everything is already displayed, do nothing
-
-                currentItems.Items.Clear();
-
-                //display everything
-                currentItems.Items.AddRange(items.Where(i => string.IsNullOrEmpty(textBox1.Text))
-                        .Select(c => new ListViewItem(c.Id)).ToArray());
+                if (!listFull)
+                    populateCollectionListView();
             }
         }
 
@@ -227,6 +209,59 @@ namespace CollectionsManager
             }
             else
             { }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if( !textBox1.Text.Equals("Search...") )
+            {
+                repopulateList();
+            }
+        }
+
+        private void repopulateList()
+        {
+            currentItems.Items.Clear();
+
+            int index = comboBox1.SelectedIndex;
+
+            string category = "";
+            switch(index)
+            {
+                case 0: //ID
+                    category = "Id";
+                    break;
+                case 1: //Maker
+                    category = "Maker";
+                    break;
+                case 2: //Variant
+                    category = "Variant";
+                    break;
+                default:
+                    Console.WriteLine("Category for query not Assigned!");
+                    break;
+            }
+
+            var queryString = "SELECT * FROM Bottlecaps WHERE "+category+" LIKE '%"+textBox1.Text+"%' ORDER BY Maker ASC";
+
+            Console.WriteLine(queryString);
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(queryString, connection))
+            {
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    ListViewItem item = new ListViewItem(dr["Id"].ToString().Trim());
+                    item.SubItems.Add(dr["Maker"].ToString().Trim());
+                    item.SubItems.Add(dr["Variant"].ToString().Trim());
+                    currentItems.Items.Add(item);
+                }
+            }
+
+            listFull = false;
         }
 
     }
