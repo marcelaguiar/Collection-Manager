@@ -284,5 +284,16 @@ namespace CollectionsManager
             }
         }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            frmEditItem itemEditPage = new frmEditItem(this);
+            if (itemEditPage.ShowDialog() == DialogResult.OK)
+            {
+                populateCollectionListView();
+            }
+
+            itemEditPage.Dispose();
+        }
+
     }
 }

@@ -10,3 +10,4 @@ C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\Collecti
 C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.pdb
 C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.frmAddItem.resources
 C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.csprojResolveAssemblyReference.cache
+C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.frmEditItem.resources

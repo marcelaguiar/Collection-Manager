@@ -62,7 +62,7 @@ namespace CollectionsManager
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -426,7 +426,7 @@ namespace CollectionsManager
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.button2, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.editButton, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.deleteButton, 1, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 257);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
@@ -436,15 +436,16 @@ namespace CollectionsManager
             this.tableLayoutPanel6.Size = new System.Drawing.Size(248, 30);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
-            // button2
+            // editButton
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 24);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.editButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editButton.Location = new System.Drawing.Point(3, 3);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(118, 24);
+            this.editButton.TabIndex = 0;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // deleteButton
             // 
@@ -621,7 +622,7 @@ namespace CollectionsManager
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
 
     }
