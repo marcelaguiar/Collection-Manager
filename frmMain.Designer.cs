@@ -31,9 +31,9 @@ namespace CollectionsManager
         {
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.ID = new System.Windows.Forms.Label();
-            this.Maker = new System.Windows.Forms.Label();
-            this.Variant = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
+            this.labelMaker = new System.Windows.Forms.Label();
+            this.labelVariant = new System.Windows.Forms.Label();
             this.currentItems = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,14 +50,14 @@ namespace CollectionsManager
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.labelDrink = new System.Windows.Forms.Label();
+            this.labelDateAcquired = new System.Windows.Forms.Label();
+            this.labelMethodAcquired = new System.Windows.Forms.Label();
+            this.labelSpares = new System.Windows.Forms.Label();
+            this.labelColor = new System.Windows.Forms.Label();
+            this.labelIcon = new System.Windows.Forms.Label();
+            this.labelUnderside = new System.Windows.Forms.Label();
+            this.labelText = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -98,9 +98,9 @@ namespace CollectionsManager
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.ID);
-            this.flowLayoutPanel1.Controls.Add(this.Maker);
-            this.flowLayoutPanel1.Controls.Add(this.Variant);
+            this.flowLayoutPanel1.Controls.Add(this.labelID);
+            this.flowLayoutPanel1.Controls.Add(this.labelMaker);
+            this.flowLayoutPanel1.Controls.Add(this.labelVariant);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(0, 45);
@@ -109,35 +109,35 @@ namespace CollectionsManager
             this.flowLayoutPanel1.Size = new System.Drawing.Size(445, 45);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // ID
+            // labelID
             // 
-            this.ID.AutoSize = true;
-            this.ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ID.Location = new System.Drawing.Point(3, 0);
-            this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(33, 25);
-            this.ID.TabIndex = 2;
-            this.ID.Text = "ID";
+            this.labelID.AutoSize = true;
+            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelID.Location = new System.Drawing.Point(3, 0);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(33, 25);
+            this.labelID.TabIndex = 2;
+            this.labelID.Text = "ID";
             // 
-            // Maker
+            // labelMaker
             // 
-            this.Maker.AutoSize = true;
-            this.Maker.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Maker.Location = new System.Drawing.Point(42, 0);
-            this.Maker.Name = "Maker";
-            this.Maker.Size = new System.Drawing.Size(72, 25);
-            this.Maker.TabIndex = 0;
-            this.Maker.Text = "Maker";
+            this.labelMaker.AutoSize = true;
+            this.labelMaker.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMaker.Location = new System.Drawing.Point(42, 0);
+            this.labelMaker.Name = "labelMaker";
+            this.labelMaker.Size = new System.Drawing.Size(72, 25);
+            this.labelMaker.TabIndex = 0;
+            this.labelMaker.Text = "Maker";
             // 
-            // Variant
+            // labelVariant
             // 
-            this.Variant.AutoSize = true;
-            this.Variant.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Variant.Location = new System.Drawing.Point(120, 0);
-            this.Variant.Name = "Variant";
-            this.Variant.Size = new System.Drawing.Size(81, 25);
-            this.Variant.TabIndex = 1;
-            this.Variant.Text = "Variant";
+            this.labelVariant.AutoSize = true;
+            this.labelVariant.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVariant.Location = new System.Drawing.Point(120, 0);
+            this.labelVariant.Name = "labelVariant";
+            this.labelVariant.Size = new System.Drawing.Size(81, 25);
+            this.labelVariant.TabIndex = 1;
+            this.labelVariant.Text = "Variant";
             // 
             // currentItems
             // 
@@ -147,6 +147,7 @@ namespace CollectionsManager
             this.columnHeader2});
             this.currentItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.currentItems.FullRowSelect = true;
+            this.currentItems.HideSelection = false;
             this.currentItems.Location = new System.Drawing.Point(3, 28);
             this.currentItems.Name = "currentItems";
             this.currentItems.Size = new System.Drawing.Size(296, 278);
@@ -213,14 +214,14 @@ namespace CollectionsManager
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label10, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label13, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label16, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label17, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label18, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.labelDrink, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelDateAcquired, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelMethodAcquired, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelSpares, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.labelColor, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.labelIcon, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.labelUnderside, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.labelText, 1, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -308,77 +309,77 @@ namespace CollectionsManager
             this.label10.TabIndex = 7;
             this.label10.Text = "Text";
             // 
-            // label11
+            // labelDrink
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(108, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "label11";
+            this.labelDrink.AutoSize = true;
+            this.labelDrink.Location = new System.Drawing.Point(108, 0);
+            this.labelDrink.Name = "labelDrink";
+            this.labelDrink.Size = new System.Drawing.Size(41, 13);
+            this.labelDrink.TabIndex = 8;
+            this.labelDrink.Text = "label11";
             // 
-            // label12
+            // labelDateAcquired
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(108, 30);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "label12";
+            this.labelDateAcquired.AutoSize = true;
+            this.labelDateAcquired.Location = new System.Drawing.Point(108, 30);
+            this.labelDateAcquired.Name = "labelDateAcquired";
+            this.labelDateAcquired.Size = new System.Drawing.Size(41, 13);
+            this.labelDateAcquired.TabIndex = 9;
+            this.labelDateAcquired.Text = "label12";
             // 
-            // label13
+            // labelMethodAcquired
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(108, 60);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "label13";
+            this.labelMethodAcquired.AutoSize = true;
+            this.labelMethodAcquired.Location = new System.Drawing.Point(108, 60);
+            this.labelMethodAcquired.Name = "labelMethodAcquired";
+            this.labelMethodAcquired.Size = new System.Drawing.Size(41, 13);
+            this.labelMethodAcquired.TabIndex = 10;
+            this.labelMethodAcquired.Text = "label13";
             // 
-            // label14
+            // labelSpares
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(108, 90);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 13);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "label14";
+            this.labelSpares.AutoSize = true;
+            this.labelSpares.Location = new System.Drawing.Point(108, 90);
+            this.labelSpares.Name = "labelSpares";
+            this.labelSpares.Size = new System.Drawing.Size(41, 13);
+            this.labelSpares.TabIndex = 11;
+            this.labelSpares.Text = "label14";
             // 
-            // label15
+            // labelColor
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(108, 120);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 13);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "label15";
+            this.labelColor.AutoSize = true;
+            this.labelColor.Location = new System.Drawing.Point(108, 120);
+            this.labelColor.Name = "labelColor";
+            this.labelColor.Size = new System.Drawing.Size(41, 13);
+            this.labelColor.TabIndex = 12;
+            this.labelColor.Text = "label15";
             // 
-            // label16
+            // labelIcon
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(108, 150);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 13);
-            this.label16.TabIndex = 13;
-            this.label16.Text = "label16";
+            this.labelIcon.AutoSize = true;
+            this.labelIcon.Location = new System.Drawing.Point(108, 150);
+            this.labelIcon.Name = "labelIcon";
+            this.labelIcon.Size = new System.Drawing.Size(41, 13);
+            this.labelIcon.TabIndex = 13;
+            this.labelIcon.Text = "label16";
             // 
-            // label17
+            // labelUnderside
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(108, 180);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 13);
-            this.label17.TabIndex = 14;
-            this.label17.Text = "label17";
+            this.labelUnderside.AutoSize = true;
+            this.labelUnderside.Location = new System.Drawing.Point(108, 180);
+            this.labelUnderside.Name = "labelUnderside";
+            this.labelUnderside.Size = new System.Drawing.Size(41, 13);
+            this.labelUnderside.TabIndex = 14;
+            this.labelUnderside.Text = "label17";
             // 
-            // label18
+            // labelText
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(108, 210);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 13);
-            this.label18.TabIndex = 15;
-            this.label18.Text = "label18";
+            this.labelText.AutoSize = true;
+            this.labelText.Location = new System.Drawing.Point(108, 210);
+            this.labelText.Name = "labelText";
+            this.labelText.Size = new System.Drawing.Size(41, 13);
+            this.labelText.TabIndex = 15;
+            this.labelText.Text = "label18";
             // 
             // panel1
             // 
@@ -585,9 +586,9 @@ namespace CollectionsManager
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label ID;
-        private System.Windows.Forms.Label Maker;
-        private System.Windows.Forms.Label Variant;
+        private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.Label labelMaker;
+        private System.Windows.Forms.Label labelVariant;
         private System.Windows.Forms.ListView currentItems;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -604,14 +605,14 @@ namespace CollectionsManager
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label labelDrink;
+        private System.Windows.Forms.Label labelDateAcquired;
+        private System.Windows.Forms.Label labelMethodAcquired;
+        private System.Windows.Forms.Label labelSpares;
+        private System.Windows.Forms.Label labelColor;
+        private System.Windows.Forms.Label labelIcon;
+        private System.Windows.Forms.Label labelUnderside;
+        private System.Windows.Forms.Label labelText;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.SplitContainer splitContainer1;

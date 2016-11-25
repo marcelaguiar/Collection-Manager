@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -11,6 +12,7 @@ namespace CollectionsManager
     {
         SqlCommand command;
         SqlConnection connection;
+        String connectionString;
 
         public frmAddItem()
         {
@@ -19,8 +21,9 @@ namespace CollectionsManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Maybe create a connectionString and set it to the variable in Settings
-            using (connection = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\Collections.mdf;Integrated Security=True"))
+            connectionString = ConfigurationManager.ConnectionStrings["CollectionsManager.Properties.Settings.CollectionsConnectionString"].ConnectionString;
+
+            using (connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 insertTextFieldsAndImage();
@@ -82,7 +85,7 @@ namespace CollectionsManager
             command.Parameters.AddWithValue("@Text", txtText.Text);
             command.Parameters.AddWithValue("@Icon", txtIcon.Text);
             command.Parameters.AddWithValue("@Color", txtColor.Text);
-            command.Parameters.AddWithValue("@DateAcquired", datePicker.Value);
+            command.Parameters.AddWithValue("@DateAcquired", datePicker.Value.Date);
             command.Parameters.AddWithValue("@Underside", txtUnderside.Text);
             command.Parameters.AddWithValue("@Imgpath", imgPath.Text);
             command.Parameters.AddWithValue("@Img",

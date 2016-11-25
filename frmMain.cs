@@ -27,6 +27,8 @@ namespace CollectionsManager
         private void frmMain_Shown(Object sender, EventArgs e)
         {
             populateCollectionListView();
+            currentItems.Items[0].Selected = true;
+            displaySelection();
         }
 
         private void populateCollectionListView()
@@ -103,17 +105,17 @@ namespace CollectionsManager
 
         private void SetLabels(IDataRecord record)
         {
-            ID.Text = record[0].ToString().Trim();
-            Maker.Text = record[1].ToString().Trim();
-            Variant.Text = record[2].ToString().Trim();
-            label11.Text = record[3].ToString().Trim();
-            label12.Text = record[9].ToString().Trim();
-            label13.Text = record[4].ToString().Trim();
-            label14.Text = record[5].ToString().Trim();
-            label15.Text = record[8].ToString().Trim();
-            label16.Text = record[7].ToString().Trim();
-            label17.Text = record[10].ToString().Trim();
-            label18.Text = record[6].ToString().Trim();
+            labelID.Text = record[0].ToString().Trim();
+            labelMaker.Text = record[1].ToString().Trim();
+            labelVariant.Text = record[2].ToString().Trim();
+            labelDrink.Text = record[3].ToString().Trim();
+            labelDateAcquired.Text = record[9].ToString().Trim();
+            labelMethodAcquired.Text = record[4].ToString().Trim();
+            labelSpares.Text = record[5].ToString().Trim();
+            labelColor.Text = record[8].ToString().Trim();
+            labelIcon.Text = record[7].ToString().Trim();
+            labelUnderside.Text = record[10].ToString().Trim();
+            labelText.Text = record[6].ToString().Trim();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -254,7 +256,6 @@ namespace CollectionsManager
                 populateCollectionListView();
                 currentItems.Items[0].Selected = true;
                 displaySelection();
-
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -264,14 +265,15 @@ namespace CollectionsManager
 
         private void deleteSelectedItem()
         {
-            string deleteQuery = "DELETE FROM Bottlecaps WHERE Id="+ ID.Text;
+            string deleteQuery = "DELETE FROM Bottlecaps WHERE Id="+ labelID.Text;
 
             try
             {
+                //Do I even need to start a new connection here?
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand("DELETE FROM Bottlecaps WHERE Id='"+ID.Text+"'", connection))
+                    using (SqlCommand command = new SqlCommand("DELETE FROM Bottlecaps WHERE Id='"+labelID.Text+"'", connection))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -286,10 +288,26 @@ namespace CollectionsManager
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            frmEditItem itemEditPage = new frmEditItem(this);
+            frmEditItem itemEditPage = new frmEditItem(
+                labelID.Text,
+                labelMaker.Text,
+                labelVariant.Text,
+                labelDrink.Text,
+                labelMethodAcquired.Text,
+                labelSpares.Text,
+                labelText.Text,
+                labelIcon.Text,
+                labelColor.Text,
+                labelDateAcquired.Text,
+                labelUnderside.Text,
+                pictureBox1.Image
+                );
+
             if (itemEditPage.ShowDialog() == DialogResult.OK)
             {
                 populateCollectionListView();
+                //
+                displaySelection();
             }
 
             itemEditPage.Dispose();
