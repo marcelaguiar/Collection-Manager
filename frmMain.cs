@@ -15,7 +15,6 @@ namespace CollectionsManager
         String connectionString;
         SqlConnection connection;
 
-        List<CollectionEntry> items = new List<CollectionEntry>();
         bool listFull = false;
          
         public frmMain()
@@ -28,7 +27,6 @@ namespace CollectionsManager
         private void frmMain_Shown(Object sender, EventArgs e)
         {
             populateCollectionListView();
-            initializeCollectionList();
         }
 
         private void populateCollectionListView()
@@ -50,27 +48,6 @@ namespace CollectionsManager
                 }
             }
             listFull = true;
-        }
-
-        private void initializeCollectionList()
-        {
-            using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Bottlecaps ORDER BY Maker ASC", connection))
-            {
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                foreach (DataRow dr in dataTable.Rows)
-                {
-                    string id = dr["Id"].ToString().Trim();
-                    string maker = dr["Maker"].ToString().Trim();
-                    string variant = dr["Variant"].ToString().Trim();
-
-                    CollectionEntry collectionEntry = new CollectionEntry(id, maker, variant);
-
-                    items.Add(collectionEntry);
-                }
-            }
         }
 
         private void displaySelection()
@@ -144,7 +121,8 @@ namespace CollectionsManager
             frmAddItem itemAddPage = new frmAddItem();
             if (itemAddPage.ShowDialog() == DialogResult.OK)
             {
-                populateCollectionListView(); //Does this not do anything
+                Console.WriteLine("PopulateCollectionListView called");
+                populateCollectionListView();
             }
 
             itemAddPage.Dispose();
@@ -184,7 +162,8 @@ namespace CollectionsManager
                 else
                 {
                     //Warn user to select a drop box search option
-                    //Come up with something non-intrusive
+                    comboBox1.DroppedDown = true;
+                    Cursor.Current = Cursors.Default;
                 }
             }
             else if (!textBox1.Text.Equals("Search..."))
@@ -237,6 +216,9 @@ namespace CollectionsManager
                 case 2: //Variant
                     category = "Variant";
                     break;
+                case 3: //Drink
+                    category = "Drink";
+                    break;
                 default:
                     Console.WriteLine("Category for query not Assigned!");
                     break;
@@ -244,8 +226,7 @@ namespace CollectionsManager
 
             var queryString = "SELECT * FROM Bottlecaps WHERE "+category+" LIKE '%"+textBox1.Text+"%' ORDER BY Maker ASC";
 
-            Console.WriteLine(queryString);
-
+            // I probably shouldn't need to use a SQLDataAdapter here
             using (connection = new SqlConnection(connectionString))
             using (SqlDataAdapter adapter = new SqlDataAdapter(queryString, connection))
             {
@@ -262,6 +243,45 @@ namespace CollectionsManager
             }
 
             listFull = false;
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Delete this item permanently?", "Deletion Warning", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                deleteSelectedItem();
+                populateCollectionListView();
+                currentItems.Items[0].Selected = true;
+                displaySelection();
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //don't delete
+            }
+        }
+
+        private void deleteSelectedItem()
+        {
+            string deleteQuery = "DELETE FROM Bottlecaps WHERE Id="+ ID.Text;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("DELETE FROM Bottlecaps WHERE Id='"+ID.Text+"'", connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
+            }
+            catch (SystemException ex)
+            {
+                MessageBox.Show(string.Format("An error occurred: {0}", ex.Message));
+            }
         }
 
     }
