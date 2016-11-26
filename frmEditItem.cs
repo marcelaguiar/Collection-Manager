@@ -31,7 +31,6 @@ namespace CollectionsManager
             string undersideLabel,
             Image picture)
         {
-            InitializeComponent();
             try
             {
                 id = Int32.Parse(idLabel);
@@ -40,6 +39,8 @@ namespace CollectionsManager
             {
                 Console.WriteLine(e.Message);
             }
+            InitializeComponent();
+            this.Text = "Item #" + idLabel;
             this.txtProduct.Text = productLabel;
             this.txtManufacturer.Text = manufacturerLabel;
             this.txtVariant.Text = variantLabel;

@@ -27,8 +27,12 @@ namespace CollectionsManager
         private void frmMain_Shown(Object sender, EventArgs e)
         {
             populateCollectionListView();
-            currentItems.Items[0].Selected = true;
-            displaySelection();
+            if (currentItems.Items.Count >= 1)
+            {
+                currentItems.Items[0].Selected = true;
+                displaySelection();
+            }
+            else displayNothing();
         }
 
         private void populateCollectionListView()
@@ -260,8 +264,12 @@ namespace CollectionsManager
             {
                 deleteSelectedItem();
                 populateCollectionListView();
-                currentItems.Items[0].Selected = true;
-                displaySelection();
+                if (currentItems.Items.Count >= 1)
+                {
+                    currentItems.Items[0].Selected = true;
+                    displaySelection();
+                }
+                else displayNothing();
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -318,6 +326,37 @@ namespace CollectionsManager
             }
 
             itemEditPage.Dispose();
+        }
+
+        private void displayNothing()
+        {
+            labelID.Text = "";
+            labelProduct.Text = "";
+            labelVariant.Text = "";
+            labelManufacturer.Text = "";
+            labelDrink.Text = "";
+            labelMethodAcquired.Text = "";
+            labelSpares.Text = "";
+            labelText.Text = "";
+            labelIcon.Text = "";
+            labelColor.Text = "";
+            labelDateAcquired.Text = "";
+            labelUnderside.Text = "";
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Dispose();
+                pictureBox1.Image = null;
+            }
+
+            //label1.Text = "";
+            //label3.Text = "";
+            //label4.Text = "";
+            //label5.Text = "";
+            //label6.Text = "";
+            //label7.Text = "";
+            //label8.Text = "";
+            //label9.Text = "";
+            //label10.Text = "";
         }
 
     }

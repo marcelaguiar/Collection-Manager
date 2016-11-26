@@ -36,8 +36,9 @@ namespace CollectionsManager
             this.labelVariant = new System.Windows.Forms.Label();
             this.currentItems = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -72,7 +73,6 @@ namespace CollectionsManager
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -165,15 +165,19 @@ namespace CollectionsManager
             this.columnHeader3.Text = "ID";
             this.columnHeader3.Width = 30;
             // 
-            // columnHeader1
+            // columnHeader4
             // 
-            this.columnHeader1.Text = "Manufacturer";
-            this.columnHeader1.Width = 77;
+            this.columnHeader4.Text = "Product";
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Variant";
             this.columnHeader2.Width = 75;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Manufacturer";
+            this.columnHeader1.Width = 77;
             // 
             // button1
             // 
@@ -575,10 +579,6 @@ namespace CollectionsManager
             this.splitContainer1.Size = new System.Drawing.Size(751, 357);
             this.splitContainer1.SplitterDistance = 302;
             this.splitContainer1.TabIndex = 7;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Product";
             // 
             // frmMain
             // 

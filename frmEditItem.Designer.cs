@@ -67,7 +67,7 @@
             this.button1.Location = new System.Drawing.Point(419, 391);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 13;
             this.button1.Text = "Confirm Changes";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -86,14 +86,14 @@
             this.txtManufacturer.Location = new System.Drawing.Point(139, 64);
             this.txtManufacturer.Name = "txtManufacturer";
             this.txtManufacturer.Size = new System.Drawing.Size(185, 20);
-            this.txtManufacturer.TabIndex = 2;
+            this.txtManufacturer.TabIndex = 3;
             // 
             // txtVariant
             // 
             this.txtVariant.Location = new System.Drawing.Point(139, 38);
             this.txtVariant.Name = "txtVariant";
             this.txtVariant.Size = new System.Drawing.Size(185, 20);
-            this.txtVariant.TabIndex = 4;
+            this.txtVariant.TabIndex = 2;
             // 
             // label2
             // 
@@ -109,7 +109,7 @@
             this.txtDrink.Location = new System.Drawing.Point(139, 90);
             this.txtDrink.Name = "txtDrink";
             this.txtDrink.Size = new System.Drawing.Size(185, 20);
-            this.txtDrink.TabIndex = 6;
+            this.txtDrink.TabIndex = 4;
             // 
             // label3
             // 
@@ -125,7 +125,7 @@
             this.txtMethodAcquired.Location = new System.Drawing.Point(139, 116);
             this.txtMethodAcquired.Name = "txtMethodAcquired";
             this.txtMethodAcquired.Size = new System.Drawing.Size(185, 20);
-            this.txtMethodAcquired.TabIndex = 8;
+            this.txtMethodAcquired.TabIndex = 5;
             // 
             // label4
             // 
@@ -150,7 +150,7 @@
             this.txtText.Location = new System.Drawing.Point(139, 168);
             this.txtText.Name = "txtText";
             this.txtText.Size = new System.Drawing.Size(185, 20);
-            this.txtText.TabIndex = 12;
+            this.txtText.TabIndex = 7;
             // 
             // label6
             // 
@@ -166,7 +166,7 @@
             this.txtIcon.Location = new System.Drawing.Point(139, 194);
             this.txtIcon.Name = "txtIcon";
             this.txtIcon.Size = new System.Drawing.Size(185, 20);
-            this.txtIcon.TabIndex = 14;
+            this.txtIcon.TabIndex = 8;
             // 
             // label7
             // 
@@ -182,7 +182,7 @@
             this.txtColor.Location = new System.Drawing.Point(139, 220);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(185, 20);
-            this.txtColor.TabIndex = 16;
+            this.txtColor.TabIndex = 9;
             // 
             // label8
             // 
@@ -207,7 +207,7 @@
             this.txtUnderside.Location = new System.Drawing.Point(139, 272);
             this.txtUnderside.Name = "txtUnderside";
             this.txtUnderside.Size = new System.Drawing.Size(185, 20);
-            this.txtUnderside.TabIndex = 20;
+            this.txtUnderside.TabIndex = 11;
             // 
             // label10
             // 
@@ -232,7 +232,7 @@
             this.button2.Location = new System.Drawing.Point(139, 301);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 23;
+            this.button2.TabIndex = 12;
             this.button2.Text = "Browse...";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -271,7 +271,7 @@
             this.datePicker.Location = new System.Drawing.Point(139, 246);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(185, 20);
-            this.datePicker.TabIndex = 27;
+            this.datePicker.TabIndex = 10;
             // 
             // sparesAvailable
             // 
@@ -279,7 +279,7 @@
             this.sparesAvailable.Location = new System.Drawing.Point(139, 144);
             this.sparesAvailable.Name = "sparesAvailable";
             this.sparesAvailable.Size = new System.Drawing.Size(44, 17);
-            this.sparesAvailable.TabIndex = 28;
+            this.sparesAvailable.TabIndex = 6;
             this.sparesAvailable.Text = "Yes";
             this.sparesAvailable.UseVisualStyleBackColor = true;
             // 
@@ -288,7 +288,7 @@
             this.txtProduct.Location = new System.Drawing.Point(139, 12);
             this.txtProduct.Name = "txtProduct";
             this.txtProduct.Size = new System.Drawing.Size(185, 20);
-            this.txtProduct.TabIndex = 30;
+            this.txtProduct.TabIndex = 1;
             // 
             // label12
             // 
