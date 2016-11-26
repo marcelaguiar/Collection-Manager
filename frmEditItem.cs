@@ -18,7 +18,8 @@ namespace CollectionsManager
 
         public frmEditItem(
             string idLabel,
-            string makerLabel,
+            string productLabel,
+            string manufacturerLabel,
             string variantLabel,
             string drinkLabel,
             string methodAcquiredLabel,
@@ -30,7 +31,7 @@ namespace CollectionsManager
             string undersideLabel,
             Image picture)
         {
-            InitializeComponent(idLabel);
+            InitializeComponent();
             try
             {
                 id = Int32.Parse(idLabel);
@@ -39,7 +40,8 @@ namespace CollectionsManager
             {
                 Console.WriteLine(e.Message);
             }
-            this.txtMaker.Text = makerLabel;
+            this.txtProduct.Text = productLabel;
+            this.txtManufacturer.Text = manufacturerLabel;
             this.txtVariant.Text = variantLabel;
             this.txtDrink.Text = drinkLabel;
             this.txtMethodAcquired.Text = methodAcquiredLabel;
@@ -89,10 +91,11 @@ namespace CollectionsManager
                 byteArray = null;
             }
 
-            string updateQueryString = "UPDATE Bottlecaps SET Maker=@Maker,Variant=@Variant,Drink=@Drink,Method_Acquired=@MethodAcquired,Spares_Available=@SparesAvailable,Text=@Text,Icon=@Icon,Color=@Color,Date_Acquired=@DateAcquired,Underside_Text=@Underside,Imgpath=@Imgpath,Img=@Img WHERE Id=" + id;
+            string updateQueryString = "UPDATE Bottlecaps SET Product=@Product,Variant=@Variant,Manufacturer=@Manufacturer,Drink=@Drink,Method_Acquired=@MethodAcquired,Spares_Available=@SparesAvailable,Text=@Text,Icon=@Icon,Color=@Color,Date_Acquired=@DateAcquired,Underside_Text=@Underside,Imgpath=@Imgpath,Img=@Img WHERE Id=" + id;
             command = new SqlCommand(updateQueryString, connection);
-            command.Parameters.AddWithValue("@Maker", txtMaker.Text);
+            command.Parameters.AddWithValue("@Product", txtProduct.Text);
             command.Parameters.AddWithValue("@Variant", txtVariant.Text);
+            command.Parameters.AddWithValue("@Manufacturer", txtManufacturer.Text);
             command.Parameters.AddWithValue("@Drink", txtDrink.Text);
             command.Parameters.AddWithValue("@MethodAcquired", txtMethodAcquired.Text);
             command.Parameters.AddWithValue("@SparesAvailable", sparesAvailable.Checked);
@@ -128,5 +131,6 @@ namespace CollectionsManager
                 imgPath.Text = openFd.FileName;
             }
         }
+
     }
 }

@@ -76,9 +76,10 @@ namespace CollectionsManager
                 byteArray = null;
             }
 
-            command = new SqlCommand("INSERT INTO Bottlecaps (Maker,Variant,Drink,Method_Acquired,Spares_Available,Text,Icon,Color,Date_Acquired,Underside_Text,Imgpath,Img) VALUES (@Maker, @Variant, @Drink, @MethodAcquired, @SparesAvailable, @Text, @Icon, @Color, @DateAcquired, @Underside, @Imgpath, @Img)", connection);
-            command.Parameters.AddWithValue("@Maker", txtMaker.Text);
+            command = new SqlCommand("INSERT INTO Bottlecaps (Product,Variant,Manufacturer,Drink,Method_Acquired,Spares_Available,Text,Icon,Color,Date_Acquired,Underside_Text,Imgpath,Img) VALUES (@Product, @Variant, @Manufacturer, @Drink, @MethodAcquired, @SparesAvailable, @Text, @Icon, @Color, @DateAcquired, @Underside, @Imgpath, @Img)", connection);
+            command.Parameters.AddWithValue("@Product", txtProduct.Text);
             command.Parameters.AddWithValue("@Variant", txtVariant.Text);
+            command.Parameters.AddWithValue("@Manufacturer", txtManufacturer.Text);
             command.Parameters.AddWithValue("@Drink", txtDrink.Text);
             command.Parameters.AddWithValue("@MethodAcquired", txtMethodAcquired.Text);
             command.Parameters.AddWithValue("@SparesAvailable", sparesAvailable.Checked);
@@ -92,6 +93,7 @@ namespace CollectionsManager
                 (pictureBox1.Image == null) ? (object)DBNull.Value : byteArray).SqlDbType = SqlDbType.Image;
             command.ExecuteNonQuery();
         }
+
 
         //private Image compressImage()
         //{

@@ -36,7 +36,7 @@ namespace CollectionsManager
             currentItems.Items.Clear();
 
             using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Bottlecaps ORDER BY Maker ASC", connection))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Bottlecaps ORDER BY Product ASC", connection))
             {
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -44,8 +44,9 @@ namespace CollectionsManager
                 foreach (DataRow dr in dataTable.Rows)
                 {
                     ListViewItem item = new ListViewItem(dr["Id"].ToString().Trim());
-                    item.SubItems.Add(dr["Maker"].ToString().Trim());
+                    item.SubItems.Add(dr["Product"].ToString().Trim());
                     item.SubItems.Add(dr["Variant"].ToString().Trim());
+                    item.SubItems.Add(dr["Manufacturer"].ToString().Trim());
                     currentItems.Items.Add(item);
                 }
             }
@@ -106,16 +107,17 @@ namespace CollectionsManager
         private void SetLabels(IDataRecord record)
         {
             labelID.Text = record[0].ToString().Trim();
-            labelMaker.Text = record[1].ToString().Trim();
+            labelProduct.Text = record[1].ToString().Trim();
             labelVariant.Text = record[2].ToString().Trim();
-            labelDrink.Text = record[3].ToString().Trim();
-            labelDateAcquired.Text = record[9].ToString().Trim();
-            labelMethodAcquired.Text = record[4].ToString().Trim();
-            labelSpares.Text = record[5].ToString().Trim();
-            labelColor.Text = record[8].ToString().Trim();
-            labelIcon.Text = record[7].ToString().Trim();
-            labelUnderside.Text = record[10].ToString().Trim();
-            labelText.Text = record[6].ToString().Trim();
+            labelManufacturer.Text = record[3].ToString().Trim();
+            labelDrink.Text = record[4].ToString().Trim();
+            labelMethodAcquired.Text = record[5].ToString().Trim();
+            labelSpares.Text = record[6].ToString().Trim();
+            labelText.Text = record[7].ToString().Trim();
+            labelIcon.Text = record[8].ToString().Trim();
+            labelColor.Text = record[9].ToString().Trim();
+            labelDateAcquired.Text = record[10].ToString().Trim();
+            labelUnderside.Text = record[11].ToString().Trim();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -212,13 +214,16 @@ namespace CollectionsManager
                 case 0: //ID
                     category = "Id";
                     break;
-                case 1: //Maker
-                    category = "Maker";
+                case 1: //Product
+                    category = "Manufacturer";
                     break;
                 case 2: //Variant
                     category = "Variant";
                     break;
-                case 3: //Drink
+                case 3: //Manufacturer
+                    category = "Manufacturer";
+                    break;
+                case 4: //Drink
                     category = "Drink";
                     break;
                 default:
@@ -226,7 +231,7 @@ namespace CollectionsManager
                     break;
             }
 
-            var queryString = "SELECT * FROM Bottlecaps WHERE "+category+" LIKE '%"+textBox1.Text+"%' ORDER BY Maker ASC";
+            var queryString = "SELECT * FROM Bottlecaps WHERE "+category+" LIKE '%"+textBox1.Text+"%' ORDER BY Product ASC";
 
             // I probably shouldn't need to use a SQLDataAdapter here
             using (connection = new SqlConnection(connectionString))
@@ -238,8 +243,9 @@ namespace CollectionsManager
                 foreach (DataRow dr in dataTable.Rows)
                 {
                     ListViewItem item = new ListViewItem(dr["Id"].ToString().Trim());
-                    item.SubItems.Add(dr["Maker"].ToString().Trim());
+                    item.SubItems.Add(dr["Product"].ToString().Trim());
                     item.SubItems.Add(dr["Variant"].ToString().Trim());
+                    item.SubItems.Add(dr["Manufacturer"].ToString().Trim());
                     currentItems.Items.Add(item);
                 }
             }
@@ -290,8 +296,9 @@ namespace CollectionsManager
         {
             frmEditItem itemEditPage = new frmEditItem(
                 labelID.Text,
-                labelMaker.Text,
+                labelProduct.Text,
                 labelVariant.Text,
+                labelManufacturer.Text,
                 labelDrink.Text,
                 labelMethodAcquired.Text,
                 labelSpares.Text,

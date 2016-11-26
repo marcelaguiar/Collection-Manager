@@ -316,10 +316,6 @@ namespace CollectionsManager {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnMaker;
-            
-            private global::System.Data.DataColumn columnVariant;
-            
             private global::System.Data.DataColumn columnDrink;
             
             private global::System.Data.DataColumn columnMethod_Acquired;
@@ -334,9 +330,17 @@ namespace CollectionsManager {
             
             private global::System.Data.DataColumn columnDate_Acquired;
             
-            private global::System.Data.DataColumn columnImage;
+            private global::System.Data.DataColumn columnProduct;
             
-            private global::System.Data.DataColumn columnUnderside;
+            private global::System.Data.DataColumn columnVariant;
+            
+            private global::System.Data.DataColumn columnManufacturer;
+            
+            private global::System.Data.DataColumn columnUnderside_Text;
+            
+            private global::System.Data.DataColumn columnImgpath;
+            
+            private global::System.Data.DataColumn columnImg;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -376,22 +380,6 @@ namespace CollectionsManager {
             public global::System.Data.DataColumn IdColumn {
                 get {
                     return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MakerColumn {
-                get {
-                    return this.columnMaker;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn VariantColumn {
-                get {
-                    return this.columnVariant;
                 }
             }
             
@@ -453,17 +441,49 @@ namespace CollectionsManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ImageColumn {
+            public global::System.Data.DataColumn ProductColumn {
                 get {
-                    return this.columnImage;
+                    return this.columnProduct;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UndersideColumn {
+            public global::System.Data.DataColumn VariantColumn {
                 get {
-                    return this.columnUnderside;
+                    return this.columnVariant;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ManufacturerColumn {
+                get {
+                    return this.columnManufacturer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Underside_TextColumn {
+                get {
+                    return this.columnUnderside_Text;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImgpathColumn {
+                get {
+                    return this.columnImgpath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImgColumn {
+                get {
+                    return this.columnImg;
                 }
             }
             
@@ -504,12 +524,10 @@ namespace CollectionsManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BottlecapsRow AddBottlecapsRow(string Maker, string Variant, string Drink, string Method_Acquired, bool Spares_Available, string Text, string Icon, string Color, System.DateTime Date_Acquired, byte[] Image, string Underside) {
+            public BottlecapsRow AddBottlecapsRow(string Drink, string Method_Acquired, bool Spares_Available, string Text, string Icon, string Color, System.DateTime Date_Acquired, string Product, string Variant, string Manufacturer, string Underside_Text, string Imgpath, byte[] Img) {
                 BottlecapsRow rowBottlecapsRow = ((BottlecapsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Maker,
-                        Variant,
                         Drink,
                         Method_Acquired,
                         Spares_Available,
@@ -517,8 +535,12 @@ namespace CollectionsManager {
                         Icon,
                         Color,
                         Date_Acquired,
-                        Image,
-                        Underside};
+                        Product,
+                        Variant,
+                        Manufacturer,
+                        Underside_Text,
+                        Imgpath,
+                        Img};
                 rowBottlecapsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBottlecapsRow);
                 return rowBottlecapsRow;
@@ -549,8 +571,6 @@ namespace CollectionsManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnMaker = base.Columns["Maker"];
-                this.columnVariant = base.Columns["Variant"];
                 this.columnDrink = base.Columns["Drink"];
                 this.columnMethod_Acquired = base.Columns["Method_Acquired"];
                 this.columnSpares_Available = base.Columns["Spares_Available"];
@@ -558,8 +578,12 @@ namespace CollectionsManager {
                 this.columnIcon = base.Columns["Icon"];
                 this.columnColor = base.Columns["Color"];
                 this.columnDate_Acquired = base.Columns["Date_Acquired"];
-                this.columnImage = base.Columns["Image"];
-                this.columnUnderside = base.Columns["Underside"];
+                this.columnProduct = base.Columns["Product"];
+                this.columnVariant = base.Columns["Variant"];
+                this.columnManufacturer = base.Columns["Manufacturer"];
+                this.columnUnderside_Text = base.Columns["Underside_Text"];
+                this.columnImgpath = base.Columns["Imgpath"];
+                this.columnImg = base.Columns["Img"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -567,10 +591,6 @@ namespace CollectionsManager {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnMaker = new global::System.Data.DataColumn("Maker", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMaker);
-                this.columnVariant = new global::System.Data.DataColumn("Variant", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVariant);
                 this.columnDrink = new global::System.Data.DataColumn("Drink", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDrink);
                 this.columnMethod_Acquired = new global::System.Data.DataColumn("Method_Acquired", typeof(string), null, global::System.Data.MappingType.Element);
@@ -585,10 +605,18 @@ namespace CollectionsManager {
                 base.Columns.Add(this.columnColor);
                 this.columnDate_Acquired = new global::System.Data.DataColumn("Date_Acquired", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate_Acquired);
-                this.columnImage = new global::System.Data.DataColumn("Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnImage);
-                this.columnUnderside = new global::System.Data.DataColumn("Underside", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUnderside);
+                this.columnProduct = new global::System.Data.DataColumn("Product", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct);
+                this.columnVariant = new global::System.Data.DataColumn("Variant", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVariant);
+                this.columnManufacturer = new global::System.Data.DataColumn("Manufacturer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnManufacturer);
+                this.columnUnderside_Text = new global::System.Data.DataColumn("Underside_Text", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnderside_Text);
+                this.columnImgpath = new global::System.Data.DataColumn("Imgpath", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImgpath);
+                this.columnImg = new global::System.Data.DataColumn("Img", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImg);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -597,14 +625,16 @@ namespace CollectionsManager {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnMaker.MaxLength = 50;
-                this.columnVariant.MaxLength = 50;
                 this.columnDrink.MaxLength = 50;
                 this.columnMethod_Acquired.MaxLength = 50;
                 this.columnText.MaxLength = 50;
                 this.columnIcon.MaxLength = 50;
                 this.columnColor.MaxLength = 50;
-                this.columnUnderside.MaxLength = 50;
+                this.columnProduct.MaxLength = 50;
+                this.columnVariant.MaxLength = 50;
+                this.columnManufacturer.MaxLength = 50;
+                this.columnUnderside_Text.MaxLength = 50;
+                this.columnImgpath.MaxLength = 300;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1170,38 +1200,6 @@ namespace CollectionsManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Maker {
-                get {
-                    try {
-                        return ((string)(this[this.tableBottlecaps.MakerColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Maker\' in table \'Bottlecaps\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBottlecaps.MakerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Variant {
-                get {
-                    try {
-                        return ((string)(this[this.tableBottlecaps.VariantColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Variant\' in table \'Bottlecaps\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBottlecaps.VariantColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Drink {
                 get {
                     try {
@@ -1314,58 +1312,98 @@ namespace CollectionsManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public byte[] Image {
+            public string Product {
                 get {
                     try {
-                        return ((byte[])(this[this.tableBottlecaps.ImageColumn]));
+                        return ((string)(this[this.tableBottlecaps.ProductColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Image\' in table \'Bottlecaps\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Product\' in table \'Bottlecaps\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBottlecaps.ImageColumn] = value;
+                    this[this.tableBottlecaps.ProductColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Underside {
+            public string Variant {
                 get {
                     try {
-                        return ((string)(this[this.tableBottlecaps.UndersideColumn]));
+                        return ((string)(this[this.tableBottlecaps.VariantColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Underside\' in table \'Bottlecaps\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Variant\' in table \'Bottlecaps\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBottlecaps.UndersideColumn] = value;
+                    this[this.tableBottlecaps.VariantColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMakerNull() {
-                return this.IsNull(this.tableBottlecaps.MakerColumn);
+            public string Manufacturer {
+                get {
+                    try {
+                        return ((string)(this[this.tableBottlecaps.ManufacturerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Manufacturer\' in table \'Bottlecaps\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBottlecaps.ManufacturerColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMakerNull() {
-                this[this.tableBottlecaps.MakerColumn] = global::System.Convert.DBNull;
+            public string Underside_Text {
+                get {
+                    try {
+                        return ((string)(this[this.tableBottlecaps.Underside_TextColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Underside_Text\' in table \'Bottlecaps\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBottlecaps.Underside_TextColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsVariantNull() {
-                return this.IsNull(this.tableBottlecaps.VariantColumn);
+            public string Imgpath {
+                get {
+                    try {
+                        return ((string)(this[this.tableBottlecaps.ImgpathColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Imgpath\' in table \'Bottlecaps\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBottlecaps.ImgpathColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetVariantNull() {
-                this[this.tableBottlecaps.VariantColumn] = global::System.Convert.DBNull;
+            public byte[] Img {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableBottlecaps.ImgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Img\' in table \'Bottlecaps\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBottlecaps.ImgColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1454,26 +1492,74 @@ namespace CollectionsManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsImageNull() {
-                return this.IsNull(this.tableBottlecaps.ImageColumn);
+            public bool IsProductNull() {
+                return this.IsNull(this.tableBottlecaps.ProductColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetImageNull() {
-                this[this.tableBottlecaps.ImageColumn] = global::System.Convert.DBNull;
+            public void SetProductNull() {
+                this[this.tableBottlecaps.ProductColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsUndersideNull() {
-                return this.IsNull(this.tableBottlecaps.UndersideColumn);
+            public bool IsVariantNull() {
+                return this.IsNull(this.tableBottlecaps.VariantColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetUndersideNull() {
-                this[this.tableBottlecaps.UndersideColumn] = global::System.Convert.DBNull;
+            public void SetVariantNull() {
+                this[this.tableBottlecaps.VariantColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsManufacturerNull() {
+                return this.IsNull(this.tableBottlecaps.ManufacturerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetManufacturerNull() {
+                this[this.tableBottlecaps.ManufacturerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUnderside_TextNull() {
+                return this.IsNull(this.tableBottlecaps.Underside_TextColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUnderside_TextNull() {
+                this[this.tableBottlecaps.Underside_TextColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImgpathNull() {
+                return this.IsNull(this.tableBottlecaps.ImgpathColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImgpathNull() {
+                this[this.tableBottlecaps.ImgpathColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImgNull() {
+                return this.IsNull(this.tableBottlecaps.ImgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImgNull() {
+                this[this.tableBottlecaps.ImgColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1977,8 +2063,6 @@ namespace CollectionsManager.CollectionsDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Bottlecaps";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("Maker", "Maker");
-            tableMapping.ColumnMappings.Add("Type", "Variant");
             tableMapping.ColumnMappings.Add("Drink", "Drink");
             tableMapping.ColumnMappings.Add("Method_Acquired", "Method_Acquired");
             tableMapping.ColumnMappings.Add("Spares_Available", "Spares_Available");
@@ -1986,87 +2070,123 @@ namespace CollectionsManager.CollectionsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Icon", "Icon");
             tableMapping.ColumnMappings.Add("Color", "Color");
             tableMapping.ColumnMappings.Add("Date_Acquired", "Date_Acquired");
-            tableMapping.ColumnMappings.Add("Image", "Image");
-            tableMapping.ColumnMappings.Add("Underside Text", "Underside");
+            tableMapping.ColumnMappings.Add("Product", "Product");
+            tableMapping.ColumnMappings.Add("Variant", "Variant");
+            tableMapping.ColumnMappings.Add("Manufacturer", "Manufacturer");
+            tableMapping.ColumnMappings.Add("Underside_Text", "Underside_Text");
+            tableMapping.ColumnMappings.Add("Imgpath", "Imgpath");
+            tableMapping.ColumnMappings.Add("Img", "Img");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Bottlecaps] WHERE (([Id] = @Original_Id) AND ((@IsNull_Maker = 1 AND [Maker] IS NULL) OR ([Maker] = @Original_Maker)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)) AND ((@IsNull_Drink = 1 AND [Drink] IS NULL) OR ([Drink] = @Original_Drink)) AND ((@IsNull_Method_Acquired = 1 AND [Method_Acquired] IS NULL) OR ([Method_Acquired] = @Original_Method_Acquired)) AND ((@IsNull_Spares_Available = 1 AND [Spares_Available] IS NULL) OR ([Spares_Available] = @Original_Spares_Available)) AND ((@IsNull_Text = 1 AND [Text] IS NULL) OR ([Text] = @Original_Text)) AND ((@IsNull_Icon = 1 AND [Icon] IS NULL) OR ([Icon] = @Original_Icon)) AND ((@IsNull_Color = 1 AND [Color] IS NULL) OR ([Color] = @Original_Color)) AND ((@IsNull_Date_Acquired = 1 AND [Date_Acquired] IS NULL) OR ([Date_Acquired] = @Original_Date_Acquired)) AND ((@IsNull_Underside_Text = 1 AND [Underside Text] IS NULL) OR ([Underside Text] = @Original_Underside_Text)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Bottlecaps] WHERE (([Id] = @Original_Id) AND ((@IsNull_Drink = 1 AND [Drink] IS NULL) OR ([Drink] = @Original_Drink)) AND ((@IsNull_Method_Acquired = 1 AND [Method_Acquired] IS NULL) OR ([Method_Acquired] = @Original_Method_Acquired)) AND ((@IsNull_Spares_Available = 1 AND [Spares_Available] IS NULL) OR ([Spares_Available] = @Original_Spares_Available)) AND ((@IsNull_Text = 1 AND [Text] IS NULL) OR ([Text] = @Original_Text)) AND ((@IsNull_Icon = 1 AND [Icon] IS NULL) OR ([Icon] = @Original_Icon)) AND ((@IsNull_Color = 1 AND [Color] IS NULL) OR ([Color] = @Original_Color)) AND ((@IsNull_Date_Acquired = 1 AND [Date_Acquired] IS NULL) OR ([Date_Acquired] = @Original_Date_Acquired)) AND ((@IsNull_Imgpath = 1 AND [Imgpath] IS NULL) OR ([Imgpath] = @Original_Imgpath)) AND ((@IsNull_Manufacturer = 1 AND [Manufacturer] IS NULL) OR ([Manufacturer] = @Original_Manufacturer)) AND ((@IsNull_Product = 1 AND [Product] IS NULL) OR ([Product] = @Original_Product)) AND ((@IsNull_Underside_Text = 1 AND [Underside_Text] IS NULL) OR ([Underside_Text] = @Original_Underside_Text)) AND ((@IsNull_Variant = 1 AND [Variant] IS NULL) OR ([Variant] = @Original_Variant)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Maker", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maker", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Maker", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maker", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Drink", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Drink", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Drink", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Method_Acquired", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Method_Acquired", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Method_Acquired", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Spares_Available", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Spares_Available", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Spares_Available", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Spares_Available", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Text", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Text", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Text", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Icon", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Icon", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Icon", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Color", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Color", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Color", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_Acquired", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Acquired", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Acquired", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Acquired", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Underside_Text", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside Text", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Underside_Text", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside Text", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Imgpath", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imgpath", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Imgpath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imgpath", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Manufacturer", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manufacturer", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Manufacturer", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manufacturer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Product", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Product", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Underside_Text", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside_Text", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Underside_Text", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside_Text", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Variant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Variant", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Variant", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Variant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Bottlecaps] ([Maker], [Type], [Drink], [Method_Acquired], [Spares_Available], [Text], [Icon], [Color], [Date_Acquired], [Image], [Underside Text]) VALUES (@Maker, @Type, @Drink, @Method_Acquired, @Spares_Available, @Text, @Icon, @Color, @Date_Acquired, @Image, @Underside_Text);
-SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Color, Date_Acquired, Image, [Underside Text] FROM Bottlecaps WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Bottlecaps] ([Drink], [Method_Acquired], [Spares_Available], [Text], [Icon], [Color], [Date_Acquired], [Img], [Imgpath], [Manufacturer], [Product], [Underside_Text], [Variant]) VALUES (@Drink, @Method_Acquired, @Spares_Available, @Text, @Icon, @Color, @Date_Acquired, @Img, @Imgpath, @Manufacturer, @Product, @Underside_Text, @Variant);
+SELECT Id, Drink, Method_Acquired, Spares_Available, Text, Icon, Color, Date_Acquired, Img, Imgpath, Manufacturer, Product, Underside_Text, Variant FROM Bottlecaps WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maker", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maker", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Drink", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Method_Acquired", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Drink", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Method_Acquired", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Spares_Available", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Spares_Available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Text", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Icon", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Text", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Icon", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Acquired", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Acquired", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Underside_Text", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside Text", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Img", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Img", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Imgpath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imgpath", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Manufacturer", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manufacturer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Product", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Underside_Text", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside_Text", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Variant", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Variant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Bottlecaps] SET [Maker] = @Maker, [Type] = @Type, [Drink] = @Drink, [Method_Acquired] = @Method_Acquired, [Spares_Available] = @Spares_Available, [Text] = @Text, [Icon] = @Icon, [Color] = @Color, [Date_Acquired] = @Date_Acquired, [Image] = @Image, [Underside Text] = @Underside_Text WHERE (([Id] = @Original_Id) AND ((@IsNull_Maker = 1 AND [Maker] IS NULL) OR ([Maker] = @Original_Maker)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)) AND ((@IsNull_Drink = 1 AND [Drink] IS NULL) OR ([Drink] = @Original_Drink)) AND ((@IsNull_Method_Acquired = 1 AND [Method_Acquired] IS NULL) OR ([Method_Acquired] = @Original_Method_Acquired)) AND ((@IsNull_Spares_Available = 1 AND [Spares_Available] IS NULL) OR ([Spares_Available] = @Original_Spares_Available)) AND ((@IsNull_Text = 1 AND [Text] IS NULL) OR ([Text] = @Original_Text)) AND ((@IsNull_Icon = 1 AND [Icon] IS NULL) OR ([Icon] = @Original_Icon)) AND ((@IsNull_Color = 1 AND [Color] IS NULL) OR ([Color] = @Original_Color)) AND ((@IsNull_Date_Acquired = 1 AND [Date_Acquired] IS NULL) OR ([Date_Acquired] = @Original_Date_Acquired)) AND ((@IsNull_Underside_Text = 1 AND [Underside Text] IS NULL) OR ([Underside Text] = @Original_Underside_Text)));
-SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Color, Date_Acquired, Image, [Underside Text] FROM Bottlecaps WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Bottlecaps] SET [Drink] = @Drink, [Method_Acquired] = @Method_Acquired, [" +
+                "Spares_Available] = @Spares_Available, [Text] = @Text, [Icon] = @Icon, [Color] =" +
+                " @Color, [Date_Acquired] = @Date_Acquired, [Img] = @Img, [Imgpath] = @Imgpath, [" +
+                "Manufacturer] = @Manufacturer, [Product] = @Product, [Underside_Text] = @Undersi" +
+                "de_Text, [Variant] = @Variant WHERE (([Id] = @Original_Id) AND ((@IsNull_Drink =" +
+                " 1 AND [Drink] IS NULL) OR ([Drink] = @Original_Drink)) AND ((@IsNull_Method_Acq" +
+                "uired = 1 AND [Method_Acquired] IS NULL) OR ([Method_Acquired] = @Original_Metho" +
+                "d_Acquired)) AND ((@IsNull_Spares_Available = 1 AND [Spares_Available] IS NULL) " +
+                "OR ([Spares_Available] = @Original_Spares_Available)) AND ((@IsNull_Text = 1 AND" +
+                " [Text] IS NULL) OR ([Text] = @Original_Text)) AND ((@IsNull_Icon = 1 AND [Icon]" +
+                " IS NULL) OR ([Icon] = @Original_Icon)) AND ((@IsNull_Color = 1 AND [Color] IS N" +
+                "ULL) OR ([Color] = @Original_Color)) AND ((@IsNull_Date_Acquired = 1 AND [Date_A" +
+                "cquired] IS NULL) OR ([Date_Acquired] = @Original_Date_Acquired)) AND ((@IsNull_" +
+                "Imgpath = 1 AND [Imgpath] IS NULL) OR ([Imgpath] = @Original_Imgpath)) AND ((@Is" +
+                "Null_Manufacturer = 1 AND [Manufacturer] IS NULL) OR ([Manufacturer] = @Original" +
+                "_Manufacturer)) AND ((@IsNull_Product = 1 AND [Product] IS NULL) OR ([Product] =" +
+                " @Original_Product)) AND ((@IsNull_Underside_Text = 1 AND [Underside_Text] IS NU" +
+                "LL) OR ([Underside_Text] = @Original_Underside_Text)) AND ((@IsNull_Variant = 1 " +
+                "AND [Variant] IS NULL) OR ([Variant] = @Original_Variant)));\r\nSELECT Id, Drink, " +
+                "Method_Acquired, Spares_Available, Text, Icon, Color, Date_Acquired, Img, Imgpat" +
+                "h, Manufacturer, Product, Underside_Text, Variant FROM Bottlecaps WHERE (Id = @I" +
+                "d)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maker", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maker", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Drink", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Method_Acquired", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Drink", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Method_Acquired", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Spares_Available", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Spares_Available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Text", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Icon", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Text", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Icon", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Acquired", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Acquired", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Underside_Text", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside Text", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Img", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Img", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Imgpath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imgpath", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Manufacturer", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manufacturer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Product", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Underside_Text", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside_Text", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Variant", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Variant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Maker", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maker", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Maker", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maker", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Drink", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Drink", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Drink", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Drink", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Method_Acquired", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Method_Acquired", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Method_Acquired", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Method_Acquired", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Spares_Available", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Spares_Available", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Spares_Available", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Spares_Available", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Text", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Text", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Text", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Text", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Icon", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Icon", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Icon", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Icon", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Color", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Color", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Color", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_Acquired", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Acquired", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Acquired", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Acquired", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Underside_Text", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside Text", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Underside_Text", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside Text", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Imgpath", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imgpath", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Imgpath", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imgpath", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Manufacturer", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manufacturer", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Manufacturer", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manufacturer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Product", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Product", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Underside_Text", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside_Text", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Underside_Text", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Underside_Text", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Variant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Variant", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Variant", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Variant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2083,8 +2203,9 @@ SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Co
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Col" +
-                "or, Date_Acquired, Image, [Underside Text] FROM dbo.Bottlecaps";
+            this._commandCollection[0].CommandText = "SELECT Id, Drink, Method_Acquired, Spares_Available, Text, Icon, Color, Date_Acqu" +
+                "ired, Img, Imgpath, Manufacturer, Product, Underside_Text, Variant FROM Bottleca" +
+                "ps";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2145,87 +2266,103 @@ SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_Maker, string Original_Type, string Original_Drink, string Original_Method_Acquired, global::System.Nullable<bool> Original_Spares_Available, string Original_Text, string Original_Icon, string Original_Color, global::System.Nullable<global::System.DateTime> Original_Date_Acquired, string Original_Underside_Text) {
+        public virtual int Delete(int Original_Id, string Original_Drink, string Original_Method_Acquired, global::System.Nullable<bool> Original_Spares_Available, string Original_Text, string Original_Icon, string Original_Color, global::System.Nullable<global::System.DateTime> Original_Date_Acquired, string Original_Imgpath, string Original_Manufacturer, string Original_Product, string Original_Underside_Text, string Original_Variant) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_Maker == null)) {
+            if ((Original_Drink == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Maker));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Drink));
             }
-            if ((Original_Type == null)) {
+            if ((Original_Method_Acquired == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Type));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Method_Acquired));
             }
-            if ((Original_Drink == null)) {
+            if ((Original_Spares_Available.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_Spares_Available.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Drink));
-            }
-            if ((Original_Method_Acquired == null)) {
+            if ((Original_Text == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Method_Acquired));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Text));
             }
-            if ((Original_Spares_Available.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((bool)(Original_Spares_Available.Value));
-            }
-            else {
+            if ((Original_Icon == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_Text == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Icon));
+            }
+            if ((Original_Color == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Text));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Color));
             }
-            if ((Original_Icon == null)) {
+            if ((Original_Date_Acquired.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_Date_Acquired.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Icon));
-            }
-            if ((Original_Color == null)) {
+            if ((Original_Imgpath == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Color));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Imgpath));
             }
-            if ((Original_Date_Acquired.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((System.DateTime)(Original_Date_Acquired.Value));
-            }
-            else {
+            if ((Original_Manufacturer == null)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((Original_Underside_Text == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_Manufacturer));
+            }
+            if ((Original_Product == null)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_Underside_Text));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_Product));
+            }
+            if ((Original_Underside_Text == null)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Underside_Text));
+            }
+            if ((Original_Variant == null)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_Variant));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2247,72 +2384,84 @@ SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Maker, string Type, string Drink, string Method_Acquired, global::System.Nullable<bool> Spares_Available, string Text, string Icon, string Color, global::System.Nullable<global::System.DateTime> Date_Acquired, byte[] Image, string Underside_Text) {
-            if ((Maker == null)) {
+        public virtual int Insert(string Drink, string Method_Acquired, global::System.Nullable<bool> Spares_Available, string Text, string Icon, string Color, global::System.Nullable<global::System.DateTime> Date_Acquired, byte[] Img, string Imgpath, string Manufacturer, string Product, string Underside_Text, string Variant) {
+            if ((Drink == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Maker));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Drink));
             }
-            if ((Type == null)) {
+            if ((Method_Acquired == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Type));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Method_Acquired));
             }
-            if ((Drink == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            if ((Spares_Available.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Spares_Available.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Drink));
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Method_Acquired == null)) {
+            if ((Text == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Method_Acquired));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Text));
             }
-            if ((Spares_Available.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(Spares_Available.Value));
-            }
-            else {
+            if ((Icon == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Text == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Icon));
+            }
+            if ((Color == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Text));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Color));
             }
-            if ((Icon == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Date_Acquired.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(Date_Acquired.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Icon));
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Color == null)) {
+            if ((Img == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Color));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((byte[])(Img));
             }
-            if ((Date_Acquired.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(Date_Acquired.Value));
-            }
-            else {
+            if ((Imgpath == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Image == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Imgpath));
+            }
+            if ((Manufacturer == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((byte[])(Image));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Manufacturer));
             }
-            if ((Underside_Text == null)) {
+            if ((Product == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Underside_Text));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Product));
+            }
+            if ((Underside_Text == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Underside_Text));
+            }
+            if ((Variant == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Variant));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2335,8 +2484,6 @@ SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Co
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    string Maker, 
-                    string Type, 
                     string Drink, 
                     string Method_Acquired, 
                     global::System.Nullable<bool> Spares_Available, 
@@ -2344,11 +2491,13 @@ SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Co
                     string Icon, 
                     string Color, 
                     global::System.Nullable<global::System.DateTime> Date_Acquired, 
-                    byte[] Image, 
+                    byte[] Img, 
+                    string Imgpath, 
+                    string Manufacturer, 
+                    string Product, 
                     string Underside_Text, 
+                    string Variant, 
                     int Original_Id, 
-                    string Original_Maker, 
-                    string Original_Type, 
                     string Original_Drink, 
                     string Original_Method_Acquired, 
                     global::System.Nullable<bool> Original_Spares_Available, 
@@ -2356,156 +2505,188 @@ SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Co
                     string Original_Icon, 
                     string Original_Color, 
                     global::System.Nullable<global::System.DateTime> Original_Date_Acquired, 
+                    string Original_Imgpath, 
+                    string Original_Manufacturer, 
+                    string Original_Product, 
                     string Original_Underside_Text, 
+                    string Original_Variant, 
                     int Id) {
-            if ((Maker == null)) {
+            if ((Drink == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Maker));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Drink));
             }
-            if ((Type == null)) {
+            if ((Method_Acquired == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Type));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Method_Acquired));
             }
-            if ((Drink == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            if ((Spares_Available.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(Spares_Available.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Drink));
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Method_Acquired == null)) {
+            if ((Text == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Method_Acquired));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Text));
             }
-            if ((Spares_Available.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(Spares_Available.Value));
-            }
-            else {
+            if ((Icon == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Text == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Icon));
+            }
+            if ((Color == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Text));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Color));
             }
-            if ((Icon == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Date_Acquired.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Date_Acquired.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Icon));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Color == null)) {
+            if ((Img == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Color));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((byte[])(Img));
             }
-            if ((Date_Acquired.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Date_Acquired.Value));
-            }
-            else {
+            if ((Imgpath == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Image == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Imgpath));
+            }
+            if ((Manufacturer == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((byte[])(Image));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Manufacturer));
             }
-            if ((Underside_Text == null)) {
+            if ((Product == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Underside_Text));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Product));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Id));
-            if ((Original_Maker == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            if ((Underside_Text == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Maker));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Underside_Text));
             }
-            if ((Original_Type == null)) {
+            if ((Variant == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Variant));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Id));
+            if ((Original_Drink == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Type));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Drink));
             }
-            if ((Original_Drink == null)) {
+            if ((Original_Method_Acquired == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Drink));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Method_Acquired));
             }
-            if ((Original_Method_Acquired == null)) {
+            if ((Original_Spares_Available.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((bool)(Original_Spares_Available.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Method_Acquired));
-            }
-            if ((Original_Spares_Available.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((bool)(Original_Spares_Available.Value));
-            }
-            else {
+            if ((Original_Text == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Original_Text == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Text));
+            }
+            if ((Original_Icon == null)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Text));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Icon));
             }
-            if ((Original_Icon == null)) {
+            if ((Original_Color == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Icon));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Color));
             }
-            if ((Original_Color == null)) {
+            if ((Original_Date_Acquired.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(Original_Date_Acquired.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Color));
-            }
-            if ((Original_Date_Acquired.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_Date_Acquired.Value));
-            }
-            else {
+            if ((Original_Imgpath == null)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((Original_Underside_Text == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Imgpath));
+            }
+            if ((Original_Manufacturer == null)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Underside_Text));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Manufacturer));
             }
-            this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Id));
+            if ((Original_Product == null)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Product));
+            }
+            if ((Original_Underside_Text == null)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Underside_Text));
+            }
+            if ((Original_Variant == null)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_Variant));
+            }
+            this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2527,8 +2708,6 @@ SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Co
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    string Maker, 
-                    string Type, 
                     string Drink, 
                     string Method_Acquired, 
                     global::System.Nullable<bool> Spares_Available, 
@@ -2536,11 +2715,13 @@ SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Co
                     string Icon, 
                     string Color, 
                     global::System.Nullable<global::System.DateTime> Date_Acquired, 
-                    byte[] Image, 
+                    byte[] Img, 
+                    string Imgpath, 
+                    string Manufacturer, 
+                    string Product, 
                     string Underside_Text, 
+                    string Variant, 
                     int Original_Id, 
-                    string Original_Maker, 
-                    string Original_Type, 
                     string Original_Drink, 
                     string Original_Method_Acquired, 
                     global::System.Nullable<bool> Original_Spares_Available, 
@@ -2548,8 +2729,12 @@ SELECT Id, Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Co
                     string Original_Icon, 
                     string Original_Color, 
                     global::System.Nullable<global::System.DateTime> Original_Date_Acquired, 
-                    string Original_Underside_Text) {
-            return this.Update(Maker, Type, Drink, Method_Acquired, Spares_Available, Text, Icon, Color, Date_Acquired, Image, Underside_Text, Original_Id, Original_Maker, Original_Type, Original_Drink, Original_Method_Acquired, Original_Spares_Available, Original_Text, Original_Icon, Original_Color, Original_Date_Acquired, Original_Underside_Text, Original_Id);
+                    string Original_Imgpath, 
+                    string Original_Manufacturer, 
+                    string Original_Product, 
+                    string Original_Underside_Text, 
+                    string Original_Variant) {
+            return this.Update(Drink, Method_Acquired, Spares_Available, Text, Icon, Color, Date_Acquired, Img, Imgpath, Manufacturer, Product, Underside_Text, Variant, Original_Id, Original_Drink, Original_Method_Acquired, Original_Spares_Available, Original_Text, Original_Icon, Original_Color, Original_Date_Acquired, Original_Imgpath, Original_Manufacturer, Original_Product, Original_Underside_Text, Original_Variant, Original_Id);
         }
     }
     
