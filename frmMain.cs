@@ -60,7 +60,7 @@ namespace CollectionsManager
         private void displaySelection()
         {
             if (this.currentItems.SelectedItems.Count == 0)
-                return; //Maybe select first element in list instead?
+                return;
 
             string id = this.currentItems.SelectedItems[0].SubItems[0].Text;
 
@@ -194,8 +194,6 @@ namespace CollectionsManager
                 pictureBox1.Height = panel3.Height;
                 pictureBox1.Width = pictureBox1.Height;
             }
-            else
-            { }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -219,7 +217,7 @@ namespace CollectionsManager
                     category = "Id";
                     break;
                 case 1: //Product
-                    category = "Manufacturer";
+                    category = "Product";
                     break;
                 case 2: //Variant
                     category = "Variant";
@@ -229,6 +227,9 @@ namespace CollectionsManager
                     break;
                 case 4: //Drink
                     category = "Drink";
+                    break;
+                case 5: //Color
+                    category = "Color";
                     break;
                 default:
                     Console.WriteLine("Category for query not Assigned!");
@@ -321,7 +322,7 @@ namespace CollectionsManager
             if (itemEditPage.ShowDialog() == DialogResult.OK)
             {
                 populateCollectionListView();
-                //
+                //Figure out how to re-select edited item here
                 displaySelection();
             }
 
@@ -347,16 +348,6 @@ namespace CollectionsManager
                 pictureBox1.Image.Dispose();
                 pictureBox1.Image = null;
             }
-
-            //label1.Text = "";
-            //label3.Text = "";
-            //label4.Text = "";
-            //label5.Text = "";
-            //label6.Text = "";
-            //label7.Text = "";
-            //label8.Text = "";
-            //label9.Text = "";
-            //label10.Text = "";
         }
 
     }
