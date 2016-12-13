@@ -19,8 +19,8 @@ namespace CollectionsManager
         public frmEditItem(
             string idLabel,
             string productLabel,
-            string variantLabel,
             string manufacturerLabel,
+            string variantLabel,
             string drinkLabel,
             string methodAcquiredLabel,
             string sparesLabel,
