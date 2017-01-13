@@ -11,3 +11,6 @@ C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\Collecti
 C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.frmAddItem.resources
 C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.csprojResolveAssemblyReference.cache
 C:\Users\Marcel\Desktop\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.frmEditItem.resources
+C:\Users\Marcel\Documents\Visual Studio 2013\Projects\CollectionsManager\CollectionsManager\bin\Debug\CollectionsManager.exe.config
+C:\Users\Marcel\Documents\Visual Studio 2013\Projects\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.exe
+C:\Users\Marcel\Documents\Visual Studio 2013\Projects\CollectionsManager\CollectionsManager\obj\Debug\CollectionsManager.pdb
